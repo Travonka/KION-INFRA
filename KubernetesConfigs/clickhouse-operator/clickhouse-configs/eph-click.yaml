@@ -1,0 +1,25 @@
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+metadata:
+  name: "eph-click"
+spec:
+  configuration:
+    zookeeper:
+      nodes:
+      - host: zookeeper.zoo1ns
+        port: 2181
+    clusters:
+    - name: "eph-click"
+      layout:
+        shardsCount: 1
+        replicasCount: 1
+      templates:
+        podTemplate: clickhouse-stable
+  templates:
+    podTemplates:
+      - name: clickhouse-stable
+        spec:
+          containers:
+          - name: clickhouse
+            image: altinity/clickhouse-server:21.8.10.1.altinitystable
+                                                                                                                                                                                                                                                        
