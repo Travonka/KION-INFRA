@@ -1,0 +1,7 @@
+{
+    "VideoId" : "b3ae93f5-804d-49f0-9d66-34fa69d8f09b",
+    "UserId" : "57fd718a-fb99-4314-a880-0e02139b4f38",
+    "EventType" : "STOP_VIDEO_EVENT",
+    "EventDuration" : 75,
+    "EventTime" : "2020-06-07 15:00:10"
+}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kion-service
+spec:
+  replicas: 5 
+  selector:
+    matchLabels:
+      app: kion-service
+  template:
+    metadata:
+      labels:
+        app: kion-service
+    spec:
+      containers:
+      - name: kion-service
+        image: travonka/kion-demo:latest
+        imagePullPolicy: Always
+        ports: 
+        - containerPort: 8082
+        - containerPort: 8888
+        livenessProbe:
+          exec:
+            command:
+            - ls
+          periodSeconds: 15
+          timeoutSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+            - ls
+          periodSeconds: 15
+          timeoutSeconds: 5  
